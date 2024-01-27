@@ -46,6 +46,17 @@ public class Circle
     }
     
     /**
+     * Me when I don't make setter functions
+     */
+    public void moveTo(int x, int y)
+    {
+        erase();
+        xPosition = x;
+        yPosition = y;
+        draw();
+    }
+    
+    /**
      * Move the circle a few pixels to the right.
      */
     public void moveRight()

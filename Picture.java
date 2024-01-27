@@ -11,22 +11,34 @@
  */
 public class Picture
 {
-    private Square wall;
-    private Square window;
-    private Triangle roof;
-    private Circle sun;
+    private Square pole;
+    private Square poleHighlight;
+    private Triangle cover;
+    private Triangle coverHighlight;
+    private Triangle light;
+    private Circle bulbHighlight;
+    private Circle bulb;
+    private Person guy;
+    private Person guyHighlight;
     private boolean drawn;
+    private boolean lit;
 
     /**
      * Constructor for objects of class Picture
      */
     public Picture()
     {
-        wall = new Square();
-        window = new Square();
-        roof = new Triangle();  
-        sun = new Circle();
+        pole = new Square();
+        poleHighlight = new Square();
+        cover = new Triangle();
+        coverHighlight = new Triangle();
+        light = new Triangle();
+        bulbHighlight = new Circle();
+        bulb = new Circle();
+        guy = new Person();
+        guyHighlight = new Person();
         drawn = false;
+        lit = false;
     }
 
     /**
@@ -35,40 +47,113 @@ public class Picture
     public void draw()
     {
         if(!drawn) {
-            wall.moveHorizontal(-140);
-            wall.moveVertical(20);
-            wall.changeSize(120);
-            wall.makeVisible();
+            poleHighlight.changeColor("white");
+            poleHighlight.moveTo(605,0);
+            poleHighlight.changeSize(70);
+            poleHighlight.makeVisible();
             
-            window.changeColor("black");
-            window.moveHorizontal(-120);
-            window.moveVertical(40);
-            window.changeSize(40);
-            window.makeVisible();
-    
-            roof.changeSize(60, 180);
-            roof.moveHorizontal(20);
-            roof.moveVertical(-60);
-            roof.makeVisible();
-    
-            sun.changeColor("yellow");
-            sun.moveHorizontal(100);
-            sun.moveVertical(-40);
-            sun.changeSize(80);
-            sun.makeVisible();
+            light.changeColor("yellow");
+            light.moveTo(640,80);
+            light.changeSize(800,1200);
+            light.makeVisible();
+            
+            bulbHighlight.changeColor("white");
+            bulbHighlight.moveTo(595, 80);
+            bulbHighlight.changeSize(80);
+            bulbHighlight.makeVisible();
+            
+            bulb.changeColor("yellow");
+            bulb.moveTo(605, 80);
+            bulb.changeSize(80);
+            bulb.makeVisible();
+            
+            coverHighlight.changeColor("white");
+            coverHighlight.moveTo(640, 50);
+            coverHighlight.changeSize(70,400);
+            coverHighlight.makeVisible();
+            
+            pole.changeColor("black");
+            pole.moveTo(615,0);
+            pole.changeSize(70);
+            pole.makeVisible();
+            
+            cover.changeColor("black");
+            cover.moveTo(670, 45);
+            cover.changeSize(70,400);
+            cover.makeVisible();
+            
+            //not visible yet
+            guyHighlight.changeColor("white");
+            guyHighlight.moveTo(640,500);
+            guyHighlight.changeSize(300,210);
+            
+            guy.changeColor("black");
+            guy.moveTo(640,510);
+            guy.changeSize(300,210);
+            
+            
+
             drawn = true;
+            lit = true;
         }
     }
 
+    /**   
+     * Redraw everything lmao
+    */
+    public void toggleLight()
+    {
+        int scene = 0;
+        poleHighlight.makeInvisible();
+        bulbHighlight.makeInvisible();
+        coverHighlight.makeInvisible();
+        bulb.makeInvisible();
+        light.makeInvisible();
+        cover.makeInvisible();
+        pole.makeInvisible();
+        guy.makeInvisible();
+        guyHighlight.makeInvisible();
+        if(!lit)
+        {
+            light.makeVisible();
+            bulb.changeColor("yellow");
+            lit = true;
+            scene = (int) (4 * Math.random());
+            //chooses one of 4 random scenes
+        } 
+        else 
+        {
+            bulb.changeColor("black");
+            lit = false;
+        }
+        poleHighlight.makeVisible();
+        bulbHighlight.makeVisible();
+        coverHighlight.makeVisible();
+        bulb.makeVisible();
+        cover.makeVisible();
+        pole.makeVisible();
+        switch(scene)
+            {
+                case 1:
+                guyHighlight.makeVisible();
+                guy.makeVisible();
+                break;
+                case 2:
+                break;
+                case 3:
+                break;
+                default:
+                break;
+            }
+    }
+    
     /**
      * Change this picture to black/white display
      */
     public void setBlackAndWhite()
     {
-        wall.changeColor("black");
-        window.changeColor("white");
-        roof.changeColor("black");
-        sun.changeColor("black");
+        cover.changeColor("black");
+        coverHighlight.changeColor("white");
     }
 
     /**
@@ -76,9 +161,7 @@ public class Picture
      */
     public void setColor()
     {
-        wall.changeColor("red");
-        window.changeColor("black");
-        roof.changeColor("green");
-        sun.changeColor("yellow");
+        cover.changeColor("red");
+        coverHighlight.changeColor("black");
     }
 }

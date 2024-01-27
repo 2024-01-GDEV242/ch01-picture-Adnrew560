@@ -29,7 +29,7 @@ public class Canvas
     {
         if(canvasSingleton == null) {
             canvasSingleton = new Canvas("BlueJ Picture Demo", 1280, 720, 
-                                         Color.white);
+                                         Color.black);
         }
         canvasSingleton.setVisible(true);
         return canvasSingleton;

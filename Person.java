@@ -47,6 +47,18 @@ public class Person
         isVisible = false;
     }
     
+    
+    /**
+     * Me when I don't make setter functions
+     */
+    public void moveTo(int x, int y)
+    {
+        erase();
+        xPosition = x;
+        yPosition = y;
+        draw();
+    }
+    
     /**
      * Move the person a few pixels to the right.
      */
