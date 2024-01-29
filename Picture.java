@@ -87,7 +87,7 @@ public class Picture
             guyHighlight.moveTo(640,500);
             guyHighlight.changeSize(300,210);
             
-            guy.changeColor("black");
+            guy.changeColor("blue");
             guy.moveTo(640,510);
             guy.changeSize(300,210);
             
@@ -134,6 +134,7 @@ public class Picture
         pole.makeVisible();
         switch(scene)
             {
+                // i was going to add more of these but i didn't lmao
                 case 1:
                 guyHighlight.makeVisible();
                 guy.makeVisible();
@@ -152,8 +153,21 @@ public class Picture
      */
     public void setBlackAndWhite()
     {
-        cover.changeColor("black");
+        poleHighlight.changeColor("white");
+        light.changeColor("white");
+        bulbHighlight.changeColor("white");
+        if(lit)
+        {
+            bulb.changeColor("white");
+        } else 
+        {
+            bulb.changeColor("black");
+        }
         coverHighlight.changeColor("white");
+        pole.changeColor("black");
+        cover.changeColor("black");
+        guyHighlight.changeColor("white");
+        guy.changeColor("black");
     }
 
     /**
@@ -161,7 +175,20 @@ public class Picture
      */
     public void setColor()
     {
-        cover.changeColor("red");
-        coverHighlight.changeColor("black");
+        poleHighlight.changeColor("white");
+        light.changeColor("yellow");
+        bulbHighlight.changeColor("white");
+        if(lit)
+        {
+            bulb.changeColor("yellow");
+        } else 
+        {
+            bulb.changeColor("black");
+        }
+        coverHighlight.changeColor("white");
+        pole.changeColor("black");
+        cover.changeColor("black");
+        guyHighlight.changeColor("white");
+        guy.changeColor("blue");
     }
 }
