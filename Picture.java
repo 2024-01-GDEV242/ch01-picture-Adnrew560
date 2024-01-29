@@ -22,7 +22,7 @@ public class Picture
     private Person guyHighlight;
     private boolean drawn;
     private boolean lit;
-
+    private boolean color;
     /**
      * Constructor for objects of class Picture
      */
@@ -39,6 +39,7 @@ public class Picture
         guyHighlight = new Person();
         drawn = false;
         lit = false;
+        color = true;
     }
 
     /**
@@ -116,10 +117,16 @@ public class Picture
         if(!lit)
         {
             light.makeVisible();
-            bulb.changeColor("yellow");
+            if(color)
+            {
+                bulb.changeColor("yellow");
+            } else 
+            {
+                bulb.changeColor("white");
+            }
             lit = true;
-            scene = (int) (4 * Math.random());
-            //chooses one of 4 random scenes
+            scene = (int) (2 * Math.random());
+            //chooses one of 2 random scenes with support for more
         } 
         else 
         {
@@ -134,14 +141,10 @@ public class Picture
         pole.makeVisible();
         switch(scene)
             {
-                // i was going to add more of these but i didn't lmao
+                // i was going to add more of these but I ran out of ideas afer 1 idea
                 case 1:
                 guyHighlight.makeVisible();
                 guy.makeVisible();
-                break;
-                case 2:
-                break;
-                case 3:
                 break;
                 default:
                 break;
@@ -168,6 +171,7 @@ public class Picture
         cover.changeColor("black");
         guyHighlight.changeColor("white");
         guy.changeColor("black");
+        color = false;
     }
 
     /**
@@ -190,5 +194,6 @@ public class Picture
         cover.changeColor("black");
         guyHighlight.changeColor("white");
         guy.changeColor("blue");
+        color = true;
     }
 }
