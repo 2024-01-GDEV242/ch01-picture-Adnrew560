@@ -28,6 +28,17 @@ public class Square
     }
 
     /**
+     * Me when I don't make setter functions
+     */
+    public void moveTo(int x, int y)
+    {
+        erase();
+        xPosition = x;
+        yPosition = y;
+        draw();
+    }
+    
+    /**
      * Make this square visible. If it was already visible, do nothing.
      */
     public void makeVisible()
